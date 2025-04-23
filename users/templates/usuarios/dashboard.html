@@ -106,10 +106,43 @@
             </div>
         </div>
     {% else %}
-        <div class="alert alert-warning text-center">
-            <p>Por favor inicia sesión para ver tu dashboard personalizado.</p>
-            <a href="{% url 'login' %}" class="btn btn-primary">Iniciar sesión</a>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 text-center bg-light p-5 shadow rounded">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Airbus_A350_XWB_first_flight_take_off.jpg/800px-Airbus_A350_XWB_first_flight_take_off.jpg" alt="Avión despegando" class="img-fluid rounded mb-4" style="max-height: 300px;">
+                
+                <h2 class="mb-3">¡Bienvenido a <strong>Aerolínea SkyWay</strong>!</h2>
+                <p class="lead">Tu próxima aventura comienza aquí. Descubre el mundo con nosotros.</p>
+                
+                <hr class="my-4">
+    
+                <div class="row text-start">
+                    <div class="col-md-6 mb-4">
+                        <h4>✈️ Destinos Internacionales</h4>
+                        <p>Conectamos más de 50 ciudades alrededor del mundo. Viaja desde América Latina a Europa, Asia y Norteamérica con comodidad y estilo.</p>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <h4>🎟️ Servicios Exclusivos</h4>
+                        <p>Disfruta de check-in online, selección anticipada de asientos, comidas personalizadas, y entretenimiento a bordo en todos nuestros vuelos.</p>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <h4>💼 Programa de viajero frecuente</h4>
+                        <p>Únete a SkyMiles y acumula puntos en cada vuelo para obtener descuentos, upgrades y vuelos gratis. ¡Empieza a ganar desde tu primer viaje!</p>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <h4>🛎️ Atención personalizada</h4>
+                        <p>Contamos con asistencia 24/7 para ayudarte con cambios, reembolsos, equipaje y cualquier necesidad especial que tengas durante tu viaje.</p>
+                    </div>
+                </div>
+    
+                <hr class="my-4">
+    
+                <p class="mb-4">Para acceder a todas nuestras funcionalidades, como reservar vuelos, ver tu historial de viajes y recibir promociones personalizadas, inicia sesión en tu cuenta.</p>
+    
+                <a href="{% url 'login' %}" class="btn btn-primary btn-lg">Iniciar sesión</a>
+            </div>
         </div>
+    </div>    
     {% endif %}
 </div>
 {% endblock %}
