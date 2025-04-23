@@ -1,0 +1,115 @@
+{% extends "usuarios/base.html" %}
+
+{% load static %}
+
+{% block title %}Dashboard - SkyWings{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+<div class="dashboard-container">
+    {% if usuario_nombre %}
+        <div class="hero-section">
+            <div class="container">
+                <h1 class="welcome-title">Bienvenido, {{ usuario_nombre }}</h1>
+                <p class="welcome-subtitle">Tu próxima aventura está a solo un clic de distancia</p>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="row">
+                <!-- Tarjeta de próximos viajes -->
+                <div class="col-lg-4">
+                    <div class="card destination-card">
+                        <div class="card-header">
+                            <i class="bi bi-airplane-fill me-2"></i>Tus Próximos Viajes
+                        </div>
+                        <div class="card-body">
+                            <div class="upcoming-trip">
+                                <div class="trip-date">
+                                    <span class="trip-day">15</span>
+                                    <span class="trip-month">MAY</span>
+                                </div>
+                                <div class="trip-details">
+                                    <h6>México City → Bogotá</h6>
+                                    <p>Vuelo SK-1234 • 8:30 AM</p>
+                                </div>
+                            </div>
+                            
+                            <div class="no-trips text-center my-4 d-none">
+                                <div class="empty-state-icon">✈️</div>
+                                <p>No tienes viajes programados</p>
+                                <a href="{% url 'vuelos' %}" class="btn btn-sm btn-outline-primary">Reservar un vuelo</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tarjeta de estado de viajero -->
+                    <div class="card mt-4 user-info-card">
+                        <div class="card-header">
+                            <i class="bi bi-star-fill me-2"></i>Estado Viajero
+                        </div>
+                        <div class="card-body">
+                            <div class="status-info">
+                                <div class="status-level">
+                                    <span class="status-badge gold">Oro</span>
+                                </div>
+                                <div class="status-points">
+                                    <div class="points-label">Puntos acumulados</div>
+                                    <div class="points-value">12,450</div>
+                                    <div class="progress mt-2">
+                                        <div class="progress-bar" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <div class="points-next">2,550 puntos para nivel Platino</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sección de búsqueda rápida -->
+            <div class="card mt-4 search-card">
+                <div class="card-body">
+                    <h4 class="search-title">Búsqueda Rápida</h4>
+                    <form class="row g-3">
+                        <div class="col-md-3">
+                            <label class="form-label">Origen</label>
+                            <select class="form-select">
+                                <option selected>Ciudad de origen</option>
+                                <option>Ciudad de México</option>
+                                <option>Guadalajara</option>
+                                <option>Monterrey</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Destino</label>
+                            <select class="form-select">
+                                <option selected>Ciudad de destino</option>
+                                <option>Madrid</option>
+                                <option>New York</option>
+                                <option>Tokyo</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label">Fecha ida</label>
+                            <input type="date" class="form-control">
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label">Fecha vuelta</label>
+                            <input type="date" class="form-control">
+                        </div>
+                        <div class="col-md-2 d-flex align-items-end">
+                            <button type="submit" class="btn btn-primary w-100">Buscar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="alert alert-warning text-center">
+            <p>Por favor inicia sesión para ver tu dashboard personalizado.</p>
+            <a href="{% url 'login' %}" class="btn btn-primary">Iniciar sesión</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

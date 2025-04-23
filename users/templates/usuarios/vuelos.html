@@ -1,0 +1,51 @@
+{% load static %}
+{% load humanize %}
+{% block title %}Vuelos disponibles{% endblock %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/vuelos.css' %}">
+<div class="flight-listings-container">
+    <div class="flight-header">
+        <h2 class="flights-title">Ofertas de viaje disponibles</h2>
+        <p class="flights-subtitle">Descubre destinos increíbles a precios especiales</p>
+    </div>
+    
+    <div class="flights-grid">
+        {% for vuelo in vuelos %}
+            <div class="flight-card">
+                <div class="flight-card-image" style="background-image: url('/static/images/destinations/{{ vuelo.destino|lower }}.jpg')">
+                    <div class="flight-overlay">
+                        <span class="flight-type">
+                            <i class="bi bi-airplane"></i> Directo
+                        </span>
+                    </div>
+                </div>
+                <div class="flight-card-content">
+                    <div class="flight-destination">
+                        <h3>{{ vuelo.destino }}</h3>
+                        <span class="flight-duration">{{ vuelo.fecha_llegada|time:"H:i" }}</span>
+                    </div>
+                    <div class="flight-details">
+                        <div class="flight-dates">
+                            <i class="bi bi-calendar3"></i>
+                            <span>{{ vuelo.fecha_salida|date:"D d/m" }} → {{ vuelo.fecha_llegada|date:"D d/m" }}</span>
+                        </div>
+                        <div class="flight-price">
+                            <span class="price-label">desde</span>
+                            <span class="price-value">${{ vuelo.precio|floatformat:0|intcomma }}</span>
+                        </div>
+                    </div>
+                    <button class="btn-book">Reservar ahora</button>
+                </div>
+            </div>
+        {% empty %}
+            <div class="empty-flights">
+                <i class="bi bi-exclamation-circle empty-icon"></i>
+                <p>No hay vuelos disponibles en este momento.</p>
+                <p class="empty-subtitle">Por favor, intenta con otras fechas o destinos.</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

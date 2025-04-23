@@ -1,0 +1,291 @@
+/* base.css - Estilo moderno para aplicación de aerolínea */
+
+:root {
+    /* Paleta de colores principal */
+    --primary-color: #0052cc;      /* Azul corporativo */
+    --secondary-color: #ff6b00;    /* Naranja vibrante */
+    --accent-color: #00b894;       /* Verde para estados de éxito */
+    --light-color: #f5f7fa;        /* Fondo claro */
+    --dark-color: #2d3436;         /* Texto oscuro */
+    --gradient-start: #0052cc;     /* Inicio del gradiente */
+    --gradient-end: #00a0e9;       /* Fin del gradiente */
+    --danger-color: #e74c3c;       /* Color para alertas y errores */
+    
+    /* Variables para tipografía */
+    --font-main: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 8px 15px rgba(0, 0, 0, 0.12);
+    --border-radius: 0.5rem;
+    --transition-speed: 0.3s;
+  }
+  
+  /* Estilos globales */
+  body {
+    font-family: var(--font-main);
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Barra de navegación */
+  .navbar-custom {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    box-shadow: var(--shadow-soft);
+    padding: 1rem 0;
+    transition: all var(--transition-speed) ease;
+  }
+  
+  .navbar-custom .navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-brand::before {
+    content: "SkyWings";
+    margin-left: 0.3rem;
+  }
+  
+  .navbar-custom .nav-link {
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 500;
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    transition: all var(--transition-speed) ease;
+  }
+  
+  .navbar-custom .nav-link:hover {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+  }
+  
+  .navbar-custom .nav-link.active {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+  
+  /* Botones */
+  .btn {
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    padding: 0.6rem 1.2rem;
+    transition: all var(--transition-speed) ease;
+  }
+  
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+  }
+  
+  .btn-outline-light {
+    border-width: 2px;
+  }
+  
+  .btn-primary {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+  }
+  
+  .btn-primary:hover {
+    background-color: #ff8124;
+    border-color: #ff8124;
+  }
+  
+  /* Contenedor principal */
+  .container {
+    padding-top: 6rem;
+    padding-bottom: 3rem;
+  }
+  
+  /* Tarjetas y elementos contenedores */
+  .card {
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-soft);
+    transition: all var(--transition-speed) ease;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+  }
+  
+  .card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-3px);
+  }
+  
+  .card-header {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    padding: 1rem 1.5rem;
+  }
+  
+  /* Para las tablas de vuelos */
+  .table {
+    margin: 0;
+  }
+  
+  .table-hover tbody tr:hover {
+    background-color: rgba(0, 82, 204, 0.05);
+  }
+  
+  .table th {
+    border-top: none;
+    font-weight: 600;
+    color: var(--primary-color);
+  }
+  
+  /* Badges para estados */
+  .badge {
+    padding: 0.5rem 0.8rem;
+    font-weight: 500;
+    border-radius: 2rem;
+  }
+  
+  .badge-success {
+    background-color: var(--accent-color);
+  }
+  
+  .badge-danger {
+    background-color: var(--danger-color);
+  }
+  
+  /* Elementos de formulario */
+  .form-control, .form-select {
+    border-radius: var(--border-radius);
+    padding: 0.6rem 1rem;
+    border: 1px solid #ced4da;
+    transition: all var(--transition-speed) ease;
+  }
+  
+  .form-control:focus, .form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(0, 82, 204, 0.15);
+  }
+  
+  /* Labels de formulario */
+  .form-label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #495057;
+  }
+  
+  /* Animaciones para elementos de carga */
+  @keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+  }
+  
+  .loading {
+    animation: pulse 1.5s infinite ease-in-out;
+  }
+  
+  /* Sección de héroe para la página principal */
+  .hero-section {
+    background: linear-gradient(135deg, rgba(0, 82, 204, 0.85), rgba(0, 160, 233, 0.85)), 
+                url('/static/images/sky-background.jpg') no-repeat center center;
+    background-size: cover;
+    color: white;
+    padding: 5rem 0;
+    margin-bottom: 3rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+  }
+  
+  .hero-section h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-section p {
+    font-size: 1.25rem;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: var(--dark-color);
+    color: white;
+    padding: 3rem 0;
+    margin-top: 3rem;
+  }
+  
+  /* Adaptabilidad para dispositivos móviles */
+  @media (max-width: 992px) {
+    .navbar-custom {
+      padding: 0.8rem 0;
+    }
+    
+    .hero-section h1 {
+      font-size: 2.5rem;
+    }
+    
+    .hero-section p {
+      font-size: 1.1rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      padding-top: 5rem;
+    }
+    
+    .hero-section {
+      padding: 3rem 0;
+    }
+    
+    .hero-section h1 {
+      font-size: 2rem;
+    }
+  }
+  
+  /* Estilo para el perfil de usuario en la barra de navegación */
+  .navbar-custom .user-profile {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-weight: 500;
+  }
+  
+  /* Iconos y elementos decorativos */
+  .flight-icon {
+    color: var(--primary-color);
+    margin-right: 0.5rem;
+  }
+  
+  /* Estilo para mensajes de alerta */
+  .alert {
+    border-radius: var(--border-radius);
+    border: none;
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .alert-success {
+    background-color: rgba(0, 184, 148, 0.1);
+    color: var(--accent-color);
+    border-left: 4px solid var(--accent-color);
+  }
+  
+  .alert-danger {
+    background-color: rgba(231, 76, 60, 0.1);
+    color: var(--danger-color);
+    border-left: 4px solid var(--danger-color);
+  }
+  
+  /* Efecto para iconos interactivos */
+  .interactive-icon {
+    transition: all var(--transition-speed) ease;
+    cursor: pointer;
+  }
+  
+  .interactive-icon:hover {
+    transform: scale(1.2);
+  }
