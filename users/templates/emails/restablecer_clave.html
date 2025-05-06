@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Restablece tu contraseña - UnaAerolinea</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #eef4fa;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 86, 179, 0.1);
+            overflow: hidden;
+        }
+        .header {
+            background-color: #004a99;
+            padding: 30px;
+            text-align: center;
+            color: #ffffff;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 26px;
+        }
+        .body {
+            padding: 30px;
+            text-align: center;
+        }
+        .body p {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .btn-reset {
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            padding: 14px 24px;
+            border-radius: 8px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .footer {
+            background-color: #f0f4f8;
+            padding: 20px;
+            text-align: center;
+            font-size: 13px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Restablece tu contraseña</h1>
+        </div>
+        <div class="body">
+            <p>Hola <strong>{{ nombre }}</strong>,</p>
+            <p>Recibimos una solicitud para restablecer tu contraseña en <strong>UnaAerolinea</strong>. Si tú lo solicitaste, haz clic en el botón de abajo para continuar:</p>
+            <a href="{{ url_restablecer }}" class="btn-reset">Restablecer contraseña</a>
+            <p style="margin-top: 30px; font-size: 14px; color: #666;">
+                Si no fuiste tú quien solicitó el cambio, puedes ignorar este mensaje.
+            </p>
+        </div>
+        <div class="footer">
+            &copy; {{ año_actual }} UnaAerolinea. Vuela alto con nosotros ✈️
+        </div>
+    </div>
+</body>
+</html>
