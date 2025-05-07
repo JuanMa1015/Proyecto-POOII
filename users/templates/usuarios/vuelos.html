@@ -13,7 +13,7 @@
     <div class="flights-grid">
         {% for vuelo in vuelos %}
             <div class="flight-card">
-                <div class="flight-card-image" style="background-image: url('/static/images/destinations/{{ vuelo.destino|lower }}.jpg')">
+                <div class="flight-card-image" style="background-image: url('{{ vuelo.imagen_url }}')">
                     <div class="flight-overlay">
                         <span class="flight-type">
                             <i class="bi bi-airplane"></i> Directo
